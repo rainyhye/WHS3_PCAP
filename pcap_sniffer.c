@@ -99,9 +99,14 @@ int main() {
         return 1;
     }
 
-    char *device_name = device->name;
+    // 장치 이름 복사 (해제 후에도 유효하게 유지하기 위해)
+    char device_name[PCAP_BUF_SIZE];
+    strncpy(device_name, device->name, sizeof(device_name) - 1);
+    device_name[sizeof(device_name) - 1] = '\0';
+
+    pcap_freealldevs(alldevs); //안전하게 장치 목록 해제
+
     printf("Using device: %s\n", device_name);
-    pcap_freealldevs(alldevs);  // 리스트 해제
 
     pcap_t *handle;
     struct bpf_program fp;
