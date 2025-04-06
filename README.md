@@ -12,14 +12,14 @@
 ## 파일 구조
 
 ```
-TCP_parser/
-├── TCP_Parser.c     # MAIN 코드드
+WHS3_PCAP/
+├── pcap_sniffer.c     # MAIN 코드
 ├── myheader.h       # 구조체 정의 헤더 파일
 ```
 
 ## 실행 방법
 
 ```bash
-gcc TCP_Parser.c -o TCP_Parser -lpcap
-sudo ./TCP_Parser
+gcc pcap_sniffer.c -o pcap_sniffer -lpcap
+sudo ./pcap_sniffer
 ```
